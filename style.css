@@ -1,0 +1,116 @@
+:root {
+  --desktop-width: 1440px;
+  --mobile-width: 375px;
+  --primary-dark: hsl(234, 12%, 34%);
+  --primary-grey: hsl(229, 6%, 66%);
+  --light-grey: hsl(0, 0%, 98%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-weight: 200;
+  color: var(--primary-dark);
+  font-size: 2rem;
+}
+
+h2 {
+  color: var(--primary-dark);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+p { line-height: 1.6; }
+
+.lead-paragraph {
+  color: var(--primary-grey);
+  max-width: 600px;
+}
+
+/* CARDS */
+.card {
+  border-radius: 5px;
+  padding: 20px;
+  display: inline-block;
+  max-width: 400px;
+  box-shadow: 0px 14px 38px -8px rgba(0,0,0,0.20);
+}
+
+.card__title {
+  color: var(--primary-dark);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.card__paragraph { 
+  color: var(--primary-grey);
+  font-size: 0.9rem; 
+}
+
+.card__icon {
+  display: block;
+  margin-left: auto;
+  margin-top: 50px;
+  padding: 0 10px 10px 0;
+}
+
+/* Card colors */
+main > .card:first-child { border-top: 4px solid hsl(180, 62%, 55%); }
+main .middle-section > .card:first-child { border-top: 4px solid hsl(0, 78%, 62%); }
+main .middle-section > .card:last-child { border-top: 4px solid hsl(34, 97%, 64%); }
+main > .card:last-child { border-top: 4px solid hsl(212, 86%, 64%); }
+
+/* ----- LAYOUT ----- */
+.container {
+  max-width: var(--desktop-width);
+  margin: auto;
+  padding: 25px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .middle-section {
+  display: flex;
+  flex-direction: column;
+}
+
+main > .card:first-child { margin-right: 40px; }
+main .middle-section > .card:first-child { margin-bottom: 40px; }
+main > .card:last-child { margin-left: 40px; }
+
+/* ----- outline for layout debugging: ----- */
+/* header { outline: 1px solid red }
+main { outline: 1px solid green }
+.card { outline: 1px solid grey } */
+
+/* ----- RESTRUCTURE LAYOUT FOR MOBILE: ----- */
+@media only screen and (max-width: 850px) {
+  main { display: block; }
+  main .card { max-width: 100%; margin-bottom: 40px;}
+  main .card:last-child { width: 100%; }
+  main .middle-section > .card { max-width: 100% }
+  main > .card:first-child { margin-right: 0px; width: 100%;}
+  main .middle-section > .card:first-child {  margin-bottom: 40px;}
+  main > .card:last-child { margin-left: 0px; }
+}
